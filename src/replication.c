@@ -336,6 +336,7 @@ long long addReplyReplicationBacklog(redisClient *c, long long offset) {
             ((server.repl_backlog_size - j) < len) ?
             (server.repl_backlog_size - j) : len;
 
+        printf("WRITE\n");
         addReplySds(c,sdsnewlen(server.repl_backlog + j, thislen));
         len -= thislen;
         j = 0;
